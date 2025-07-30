@@ -1,0 +1,92 @@
+{% load static %}
+
+{% block content %}
+
+  <style>
+    
+  </style>
+  
+  <header class="section-header" style="background-color:#086494">
+        <nav class="navbar p-md-0 navbar-expand-sm navbar-light border-bottom">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                  Bienvenue sur DIC1SHOP - Boutique de commerce électronique en ligne
+                <div class="navbar" id="navbarTop4">
+                    <small>Suivez-nous :</small>
+                    <ul class="navbar-nav">
+                        <li><a href="#" class="nav-link"><i class="fab fa-twitter text-white"></i></a></li>
+                        <li><a href="#" class="nav-link"><i class="fab fa-facebook-f text-white"></i></a></li>
+                        <li><a href="#" class="nav-link"><i class="fa-brands fa-pinterest text-white"></i></a></li>
+                        <li><a href="#" class="nav-link"><i class="fa-brands fa-reddit text-white"></i></a></li>
+                        <li><a href="#" class="nav-link"><i class="fa-brands fa-youtube text-white"></i></a></li>
+                        <li><a href="#" class="nav-link"><i class="fa-brands fa-instagram text-white"></i></a></li>
+                    </ul> 
+                    <small class="opacity-50 mx-2">|</small>
+                    
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link" style="color:white"> Fra </a>
+                        </li>
+                        <i class="fa-solid fa-chevron-down" style="font-size:12px; margin-top:13px"></i>
+                        <i class="bi bi-chevron-down" style="font-size:13px;margin-top:10px;color:white"></i>
+                        <li class="nav-item dropdown text-white">
+                            <a href="#" class="nav-link" style="color:white"> USD </a>
+                            <ul class="dropdown-menu small">
+                              <li><a class="dropdown-item" href="#">EUR</a></li>
+                              <li><a class="dropdown-item" href="#">AED</a></li>
+                              <li><a class="dropdown-item" href="#">RUBL </a></li>
+                            </ul>
+                        </li>
+                        <i class="fa-solid fa-chevron-down" style="font-size:12px; margin-top:13px"></i>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  
+        <section class="header-main border-bottom">
+          <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-2 col-md-3 col-6">
+                <div class="logo-container mb-3">
+                    <img class='me-0 pb-1' src="{% static 'images/logobis.png' %}" alt="logo" style='width:45px;height:45px;position:relative;left:-10px'>
+                    <span class="ml-0"><b>Boutique de DIC1</b></span>
+                </div>
+            </div>
+            
+          <div class="col-lg col-md-6 col-sm-12">
+            <form action="{% url 'search' %}"><class="search" method='GET'>
+              <div class="input-group w-100">
+                  <input type="text" class="form-control ml-4" style="width:500px; background-color: white;" placeholder="Rechercher n'importe quoi" name="keyword">
+                  <div class="input-group-append">
+                    <button class="btn btn-custom" type="submit">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+            </form>
+          </div>  
+
+          <div class="col-lg-3 col-sm-6 col-8 order-2 order-lg-2">
+                <div class="d-flex justify-content-end mb-3 mb-lg-0">
+                  <div class="widget-header">
+                    <div>
+                      <a href="{% url "cart" %}">
+                        <div class="icon icon-sm "><img class='me-0 pb-1 mr-2' src="{% static 'images/cart-shopping-solid.png' %}" alt="logo" style='width:25px;height:30px;position:relative;left:-10px;'></div>
+                        <span class="badge badge-pill bg-light notify" style="position:relative;left:-40px;top:-15px;color:#086494;">{{cart_count}}</span>
+                      </a>
+                      {% comment %} <a href=""><img class='me-0 pb-1 mr-2' src="{% static 'images/cart-shopping-solid.png' %}" alt="logo" style='width:25px;height:30px;position:relative;left:-10px'></a></span>{% endcomment %}
+                      <a href="{% url 'profil' %}"><img class='me-0 pb-1' src="{% static 'images/user.png' %}" alt="logo" style='width:25px;height:30px;position:relative;left:-10px'></a></span> 
+                    </div>
+                  </div>
+                  
+                </div> <!-- widgets-wrap.// -->
+              </div> <!-- col.// -->
+        </div> <!-- row.// -->
+      </div> <!-- container.// -->
+    </section> <!-- header-main .// -->
+    
+</header>
+
+{% endblock %}

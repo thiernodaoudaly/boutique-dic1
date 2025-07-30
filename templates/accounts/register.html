@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <style>
+        .accueil { background-color : #f8f4f4;}
+        .sous-accueil { height: 70px; padding-top: 20px; padding-bottom: 25px;}
+        .fa-chevron-right { font-size:15px; margin-bottom:2px; color: #606c74;}
+        a {text-decoration: none; color: inherit;}
+        a:hover {color: inherit;}
+        .one {color: #606c74;}
+        .deux {color : #08a4fc;}
+        .custom-hr { border: none; height: 4px; /* Épaisseur de la ligne */ background-image: linear-gradient(to right, white 50%, #ff6600 50%); position: relative;
+        }
+        .custom-hr::before {
+            content: ""; position: absolute; top: 0; left: 50%; height: 100%; width: 2px; /* Largeur de la division des couleurs */background-color: orange; /* Couleur de séparation */
+            transform: translateX(-50%);
+        }
+    </style>
+
+    <div class="container-fluid accueil">
+        <div class="container sous-accueil" >
+            <a class="one" href="{% url "home" %}">
+                <i class="bi bi-house"></i>
+                Accueil
+            </a>
+            <a class="deux" href="{% url "register" %}">
+                <i class="fa-solid fa-chevron-right"></i>
+                Inscription </a>
+            </a>
+        </div> 
+    </div>
+
+    <section class="section-conten padding-y" style="min-height:84vh">
+    {% if request.GET.command == 'verification' %}
+    <div class="container mx-auto alert alert-info text-center" role="alert" style="max-width: 1024px; margin-top:100px;">
+    </div>
+    {% else %}
+        <div class="card mx-auto shadow" style="max-width: 405px; margin-top:50px;">
+            {% include 'alerts.html' %}
+        <div class="card-body" style="justify-content-center">
+        <h4 class="card-title mb-4" style="">
+            <a href="{% url "login" %}" id="loginTab" class="mr-5 text-black">Connexion</a>
+            <a href="{% url "register" %}" id="registerTab" class="ml-5">Inscription</a>
+            <hr class="custom-hr">
+        </h4>
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                Prenom :
+                {{ form.first_name }}
+            </div> 
+            <div class="form-group">
+                Nom :
+                {{ form.last_name }}
+            </div> 
+            <div class="form-group">
+                Date de naissance :
+                {{ form.birthday }}
+            </div> 
+            <div class="form-group">
+                Courriel :
+                {{form.email}}
+            </div> 
+            <div class="form-group">
+                Mot de passe :
+                {{ form.password }}
+            </div> 
+            <div class="form-group">
+                Confirmez le mot de passe :
+                {{ form.confirm_password }}
+            </div> 
+            <div class="form-group">
+                <button type="submit" class="btn btn-orange btn-block"> S'inscrire <i class="fa-solid fa-arrow-right"></i></button>
+            </div> 
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Êtes-vous d'accord avec les conditions d'utilisation et les politiques de confidentialité ?
+                    </label>
+                </div>
+            </div>
+            {{ form.email.errors }}
+            {{ form.non_field_errors }}
+        </form>
+        </div> 
+        </div> 
+        <p class="text-center mt-4">Avez-vous déja un compte? <a style="color:#ff6600" href="{% url 'login' %}">Se connecter</a></p>
+      <br><br> 
+    {% endif %}
+    </section> 
+
+{% endblock %}
+

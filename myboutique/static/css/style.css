@@ -1,0 +1,300 @@
+.btn-square {
+    border-radius: 0 !important;
+}
+
+.ajouter .btn{
+    margin-left: 20px;
+    background-color: #F97300 !important;
+    border: solid 1px #F97300;
+}
+
+.col{
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-actions {
+    margin-top: -20px; /* Ajuster la marge au-dessus si nécessaire */
+    padding: -10px; /* Ajuster le rembourrage intérieur si nécessaire */
+}
+
+/* Hide Radio button */
+.rate > input{
+    display: none;
+  }
+  
+  .rate{
+    display: inline-block;;
+    border: 0;
+    
+  }
+  
+  .rate > label{
+    float: right;
+  }
+  
+  /* Showing the stars */
+  .rate > label:before{
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: fontwesome;
+    content: "\f005";
+    margin:0;
+    padding:0.3rem .2rem;
+    cursor: pointer;
+  }
+  
+  /* Half star */
+  .rate .half:before{
+    content: "\f089";
+    position: absolute;
+    padding-right: 0;
+  }
+  
+  /* Click and hover */
+  input:checked ~ label, label:hover ~ label{
+    color: #ffb503;
+  }
+  
+  /* hover hightlight */
+  input:checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+  label:hover ~ input:checked ~ label{
+    color: #cc9000;
+  }
+  
+  .rating-star i{
+    color: #ffb503 !important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    /* transition: all 0.4s ease;; */
+}
+
+body{
+    height: 100vh;
+}
+header {
+    background-color: #086494;
+}
+.section-header {
+    background-color: #086494;
+    color : white;
+}
+#logo-boutique {
+    font-size: 1px;
+}
+.header-main {
+    margin-top: 1%;
+    padding-bottom: 1%;
+}
+.btn-custom {
+    background-color: white; /* Fond blanc */
+    color: black; /* Texte noir */
+}
+.logo-container {
+    position: relative;
+    width: auto;
+    height: 25px;
+}
+
+/* ===== Logo Concentrique ===== */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+}
+.brand-wrap{
+    margin: 5px;
+}
+.outer-circle {
+    background-color: white; /* Couleur du cercle extérieur */
+    border: 2px solid black; /* Bordure noire */
+    width: 24px; /* Taille du cercle extérieur */
+    height: 24px;
+}
+.inner-circle {
+    background-color: white; /* Couleur du cercle intérieur */
+    border: 2px solid black; /* Bordure noire */
+    width: 20px; /* Taille du cercle intérieur */
+    height: 20px;
+    top: 2px; /* Ajustement de la position du cercle intérieur */
+    left: 2px;
+}
+.middle-circle {
+    background-color: black; /* Couleur du cercle du milieu */
+    width: 14px; /* Taille du cercle du milieu */
+    height: 14px;
+    top: 5px; /* Ajustement de la position du cercle du milieu */
+    left: 5px;
+}
+/* =====  ===== */
+
+#sous-navbar {
+    color :rgba(230, 188, 173, 0.02) !important;
+    height: 1%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* .mdp {
+    color: rgb(95, 131, 159);
+}
+
+#registerTab, #loginTab {
+    justify-content: right;
+    align-items:flex-end;
+    color: black; 
+} */
+
+.accueil {
+    background-color : #f8f4f4;
+}
+.sous-accueil {
+    height: 70px; padding-top: 20px; padding-bottom: 25px;
+}
+.fa-chevron-right {
+    font-size:15px; margin-bottom:2px;
+    color: #606c74;
+}
+a {
+    text-decoration: none; color: inherit;
+}
+a:hover {
+    color: inherit;
+}
+.one {
+    color: #606c74;
+}
+.deux {
+    color : #08a4fc;
+}
+
+/* ===== Couleur Orange ===== */
+.orange{
+    color:#ff6600;
+}
+.btn-orange {
+    color: #fff;
+    background-color: #ff6600; /* Couleur orange */
+    border-color: #ff6600; /* Couleur de la bordure */
+}
+.btn-orange:hover {
+    background-color: #cc5500; /* Couleur orange légèrement plus foncée au survol */
+    border-color: #cc5500;
+}
+.custom-hr {
+    border: none;
+    height: 4px; /* Épaisseur de la ligne */
+    background-image: linear-gradient(to right, white 50%, #ff6600 50%);
+    position: relative;
+}
+.custom-hr::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 2px; /* Largeur de la division des couleurs */
+    background-color: orange; /* Couleur de séparation */
+    transform: translateX(-50%);
+}
+/* ===== ===== */
+
+#cercle {
+    background-color: rgba(40, 167, 69, 0.5);
+    border : 4px solid green;
+    margin-left: 170px;
+}
+.fas {
+    color: green;
+}
+
+/* ===== Footer ====== */
+.footer {
+    padding-top: 40px;
+    background-color: #191c1f;
+    font-size: 12px;
+}
+.footer .hr {
+    background-color: gray;
+}
+.footer .row {
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    color: #ADB7BC;
+    font-size: 12px;
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+.footer .row .footer_title {
+    font-size: 10px;
+    color: white;
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.footer .row .contact ul {
+    list-style-type: none;
+}
+.footer .row .contact ul li {
+    white-space: normal;
+}
+.footer .row .populaire div {
+    text-wrap: wrap;
+}
+.footer .row .populaire div span {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 0.5px solid gray;
+    margin-bottom: 4px;
+    color: white;
+}
+.footer .row .telechargement {
+    color: white;
+}
+.footer .row .telechargement img {
+    width: 50px;
+    height: 50px;
+}
+
+.footer ul {
+    list-style-type: none;
+    padding-left: 0%;
+}
+.footer ul li {
+    white-space: normal;
+    list-style-type: none;
+}
+.footer ul li a {
+    color: #ADB7BC;
+    text-decoration: none;
+}
+
+

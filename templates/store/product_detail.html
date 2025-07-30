@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid accueil">
+    <div class="container sous-accueil" >
+        <a class="one align-items-center" href="{% url "home" %}">
+            <img class='me-2' src="{% static 'images/home.png' %}" alt="logo" style='width:20px;height:20px;'>
+            Maison
+        </a>
+        <a class="deux" href="{% url "parametres" %}">
+            <i class="fa-solid fa-chevron-right"></i>
+            {{single_product.product_name}} </a>
+        </a>
+      </div> 
+</div> 
+
+<section class="section-content padding-y bg">
+  <div class="container">
+      <!-- ============================ COMPONENT 1 ================================= -->
+      <div class="card">
+          <div class="row no-gutters">
+              <aside class="col-md-6">
+                  <article class="gallery-wrap"> 
+                      <div class="img-big-wrap">
+                          <a href="#"><img src="{{ single_product.images.url }}"></a>
+                      </div> <!-- img-big-wrap.// -->
+                  </article> <!-- gallery-wrap .end// -->
+              </aside>
+              <main class="col-md-6 border-left product-data">
+                  <article class="content-body ">
+                      <h5 class="title">{{single_product.product_name}}</h5>
+                      <div class="mb-3">
+                        <p class=" float-md-right ">Marque: <span class="text-muted">{{single_product.marque}} </span><p>  
+                        <p class="mb-1">Catégorie : <span class="text-muted">{{single_product.category}}</span> </p>
+                        <div class="mt-4 text-info"><var class="price h5 text-info "> {{single_product.price}} $</var></div>
+                        <hr>
+
+                      <div class="row mt-2 ">
+                          <div class="col-md-4">
+                              <div class="input-group text-center mb-3" style="width:130px;"> 
+                                <a href="" class="input-group-text decrement-btn">-</a>
+                                <input type="text" name="quantity" class="form-control qty-input text-center" value = "1">
+                                <a href="" class="input-group-text increment-btn">+</a>
+                              </div> <!-- col.// -->
+                            </div>
+                            <div class="col-md-8">
+                                <a href="{% url 'add_cart' single_product.id %}" class="btn  btn-warning"> <span class="text">Ajouter au panier</span> <i class="fas fa-shopping-cart" style="color:white"></i></a>
+                                <p class="p-1 mt-3 fs-6">Partager le produit: <span>
+                                    <i class="fa-solid fa-copy p-1 text-muted"></i>
+                                    <i class="fa-brands fa-facebook p-1" style="color:#F97300"></i>
+                                    <i class="fa-brands fa-twitter p-1 text-muted"></i>
+                                    <i class="fa-brands fa-pinterest-p p-1 text-muted"></i>
+                                </span></p>
+                            </div>
+                      </div> <!-- row.// -->
+                      <hr>
+                      <article class="box mb-3 d-flex flex-column mb-3">
+                        <p>Garantie à 100 % Paiement sécurisé</p>
+                        <div><img src="{% static "./assets/Payment Method.png" %}" alt=""></div>
+                      </article>
+                  </article> <!-- product-info-aside .// -->
+              </main> <!-- col.// -->
+          </div> <!-- row.// -->
+      </div> <!-- card.// -->
+      <!-- ============================ COMPONENT 1 END .// ================================= -->
+      
+      <br>
+      
+      <div class="row">
+              <article class="box mb-3 d-flex ">
+                  <div class="description me-4 ">
+                    <h5>Description</h5>
+                    <p class='px-3'>{{ single_product.description}}</p>	
+                  </div>
+                  <div class="fonctionnality">
+                    <h5>Fonctionnlités</h5>
+                    <div class="logo d-flex flex-column ">
+                        <div class="p-1"><i class="fa-solid fa-award" style="color:#F97300"></i>  Garantie gratuite d'un an</div>
+                        <div class="p-1"><i class="fa-solid fa-truck" style="color:#F97300"></i>  Livraison gratuite et livraison rapide</div>
+                        <div class="p-1" ><i class="fa-regular fa-handshake" style="color:#F97300"></i>  Garantie de remboursement à 100 %</div>
+                        <div class="p-1"><i class="fa-solid fa-headphones" style="color:#F97300"></i>  Assistance client 24h/24 et 7j/7</div>
+                        <div class="p-1"><i class="fa-regular fa-hard-drive" style="color:#F97300"></i>   Mode de paiement sécurisé</div>
+                    </div>
+                  </div>
+                  <div class="d-flex" style="height: 200px;">
+                    <div class="vr"></div>
+                  </div>
+                  <div class="information">
+                    <h5>Informations sur la livraison</h5>
+                    <p class="fw-bold"> Courrier: <span class="text-muted">2 à 4 jours, livraison gratuite</span></p>
+                    <p class="fw-bold"> Expédition locale : <span class="text-muted">jusqu'à une semaine, 19 $.00</span></p>
+                    <p class="fw-bold"> Expédition terrestre UPS : <span class="text-muted">4 à 6 jours, 29 $.00</span></p>
+                    <p class="fw-bold"> Exportation mondiale Unishop : <span class="text-muted">3 à 4 jours, 39 $.00</span></p>	
+                  </div>
+              </article>
+              <!-- Ajouter d'autres commentaires ici -->
+          </div> <!-- col.// -->
+      </div> <!-- row.// -->
+  </div> <!-- container .//  -->
+</section>
+
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid accueil">
+    <div class="container sous-accueil" >
+        <a class="one align-items-center" href="{% url "home" %}">
+            <img class='me-2' src="{% static 'images/home.png' %}" alt="logo" style='width:20px;height:20px;'>
+            Maison
+        </a>
+        <a class="one align-items-center" href="{% url 'validation'  %}">
+            Panier
+        </a>
+        <a class="deux" href="{% url "parametres" %}">
+            <i class="fa-solid fa-chevron-right"></i>
+            valideur
+        </a>
+      </div> 
+</div> 
+
+<div class="container d-flex justify-content-center align-items-center vh-100" style="width:100%">
+    <div class="text-center">
+        
+        <div id="cercle" class="rounded-circle p-3 mx-auto" style="width: 90px; height: 90px; display: flex; justify-content: center; align-items: center;">
+            <img class='me-0 pb-1' src="{% static 'images/check-circle.png' %}" alt="logo">
+        </div> 
+        
+        <br>
+        <h5 class="mb-4"><b>Votre commande a été validée</b></h5>
+        <p>Nous traitons votre commande avec soin et rapidité.</p>
+        <p>Votre satisfaction est notre priorité numéro un.</p>
+        <button type="submit" class="btn btn-orange col-auto"> <a href="{% url 'home' %}">MAISON</a> <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <style>
+        .accueil { background-color : #f8f4f4;}
+        .sous-accueil { height: 70px; padding-top: 20px; padding-bottom: 25px;}
+        .fa-chevron-right { font-size:15px; margin-bottom:2px; color: #606c74;}
+        a {text-decoration: none; color: inherit;}
+        a:hover {color: inherit;}
+        .one { color: #606c74;}
+        .deux {color : #08a4fc;}
+    </style>
+
+    <div class="container-fluid accueil">
+        <div class="container sous-accueil" >
+            <a class="one" href="{% url "home" %}">
+                <i class="bi bi-house"></i>
+                Accueil
+            </a>
+            <a class="deux" href="{% url "register" %}">
+                <i class="fa-solid fa-chevron-right"></i>
+                Connexion </a>
+            </a>
+        </div> 
+    </div>
+    
+    <section class="section-conten padding-y" style="min-height:84vh">
+        {% if request.GET.command == 'verification' %}
+        <div class="container mx-auto alert alert-info text-center" role="alert" style="max-width: 1024px; margin-top:100px;">
+        Merci de vous être inscrit avec nous. Nous vous avons envoyé un e-mail de vérification à votre adresse e-mail. [{{ request.GET.email }}]
+        <br><br>
+        Déjà vérifié ?<a href="{% url 'login' %}" style ="color:#ff6600">S'incrire</a>
+        </div>
+        {% else %}
+        <div class="card mx-auto shadow" style="max-width: 405px; margin-top:100px; padding-bottom:100px">
+
+        <div class="card-body">
+
+        <h4 class="card-title mb-4">
+            <a href="{% url 'login' %}" id="loginTab" class="mr-5">Connexion</a>
+            <a href="{% url 'register' %}" id="registerTab" class="ml-5">Inscription</a>
+            <hr style="border-color:#ff6600; border-width: 4px; width: 50%;">
+        </h4>
+        {% include 'alerts.html' %}
+
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                Courriel :
+                <input type="email" class="form-control" name="email" placeholder="votre adresse email">
+            </div> 
+            <div class="form-group">
+                Decouvrez la coupe : 
+                <a href="{% url 'resetPassword' %}" class="float-right"><small class="mdp">Mot de passe oublié</small></a>
+                <input type="password" class="form-control" name="password" placeholder="votre mot de passe">
+            </div> 
+
+            <div class="form-group" >
+                <button type="submit" class="btn btn-orange btn-block"><b> Connexion </b> <i class="fa-solid fa-arrow-right"></i></button>
+            </div> 
+        </form>
+        </div> 
+        </div> 
+        <p class="text-center mt-4">Vous n'avez pas encore de compte ? <a href="{% url 'register' %}" style ="color:#ff6600">Inscrivez-vous</a></p>
+        <br><br>
+        {% endif %}
+    </section>
+
+{% endblock %}
+

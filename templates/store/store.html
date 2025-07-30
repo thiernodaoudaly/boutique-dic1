@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+	<style>
+		.cart-icon {
+		display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: #fff; background-color: rgba(0, 0, 0, 0.5); padding: 8px; border-radius: 50%; }
+
+		.img-wrap:hover .cart-icon {
+		display: block; /* Affiche l'icône au survol */}
+
+		/* Styles pour l'overlay (rectangle semi-transparent) */
+		.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); /* Couleur semi-transparente */ opacity: 0; /* Opacité initiale à 0 */ transition: opacity 0.3s ease; /* Transition pour un fondu en apparaissant */}
+
+		/* Afficher l'overlay au survol de l'image */
+		.img-wrap:hover .overlay {
+		opacity: 0.5; /* Opacité à 1 au survol */
+		}
+
+		/* Divise le div en trois parties égales */
+		.article-wrapper {
+		display: flex;
+		flex-direction: column;
+		}
+		.description, .fonctionnality, .information {
+			flex: 1;
+		}
+		.categories .list-menu li a.thumbmail:hover {
+			color: #ff6600;
+		} 
+	</style>	
+
+
+	<div class="container-fluid accueil">
+		<div class="container sous-accueil" >
+			<a class="one d-flex align-items-center" href="{% url "home" %}">
+				<img class='me-2' src="{% static 'images/home.png' %}" alt="logo" style='width:20px;height:20px;'>
+				<span class='mb-0'>Home</span>
+			</a>
+		</div> 
+	</div>
+
+
+<section class="section-content padding-y">
+	<div class="container">
+		<div class="row">
+			<aside class="col-md-3">
+				<div class="categories">
+					<header class="card-header">
+						<a href="#"  aria-expanded="true" class="category">
+							<h6 class="title" style='color:black;'>CATEGORIE DE PRODUITS</h6>
+						</a>
+					</header>
+					<div class="filter-content collapse show" id="collapse_1" style="cursor:pointer;">
+						<div class="card-body">
+							<ul class="list-menu">
+								<li>
+									<a class="thumbmail" href="{% url 'store' %}">
+										{% comment %} <input type="radio" style='color:orange;' name="product" value="all" checked> {% endcomment %}
+										<a href="{% url 'store' %}">Tous les produits</a>
+									</a>
+								</li>
+								{% for category in links %}
+								<li>
+									<a class="thumbmail" href="{{category.get_url}}">
+										{% comment %} <input type="radio" name="product" value="{{ category.id }}"> {% endcomment %}
+										{{ category.category_name }}
+									</a>
+								</li>
+								{% endfor %}
+							</ul>
+						</div> 
+					</div>
+				</div>	
+			</aside> <!-- col.// -->
+
+			<main class="col-md-9">
+				<div class="row">
+					{% for product in products  %}
+					<div class="col-md-3">
+						<figure class="card card-product-grid ">
+							<div class="img-wrap"> 
+								<a href="{{product.get_url}}"><img src="{{product.images.url}}" class='p-3'>
+									<div class="overlay"></div> 
+									<i class="fas fa-shopping-cart cart-icon"></i>
+								</a>
+							</div> <!-- img-wrap.// -->
+							<figcaption class="info-wrap p-2">
+								<i class="fa-solid fa-star" style="color:#F97300"></i>
+								<i class="fa-solid fa-star" style="color:#F97300"></i>
+								<i class="fa-solid fa-star" style="color:#F97300"></i>
+								<i class="fa-solid fa-star" style="color:#F97300"></i>
+								<i class="fa-regular fa-star"></i>
+								<div class="fix-height">
+									<a href="{{product.get_url}}" class="small text-dark">{{ product.product_name }}</a>
+									<div class="price-wrap mt-2">
+										<span class="price text-info">$ {{ product.price }}</span>
+									</div> <!-- price-wrap.// -->
+								</div>
+							</figcaption>
+						</figure>
+					</div> <!-- col.// -->
+					{% endfor %}
+				</div><!-- end row -->
+			</main> <!-- col.// -->
+		</div>
+	</div> <!-- container .//  -->
+</section>
+
+
+{% endblock content %}

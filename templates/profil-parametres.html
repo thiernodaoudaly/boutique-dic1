@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    form i {
+        margin-left: 50px; cursor: pointer;
+    }
+    .accueil {
+        background-color : #f8f4f4;
+    }
+    .sous-accueil {
+        height: 70px; padding-top: 20px; padding-bottom: 25px;
+    }
+    .fa-chevron-right {
+        font-size:15px; margin-bottom:2px;
+        color: #606c74;
+    }
+    a {
+        text-decoration: none; color: inherit;
+    }
+    a:hover {
+        color: inherit;
+    }
+    .one {
+        color: #606c74;
+    }
+    .deux {
+        color : #08a4fc;
+    }
+</style>
+
+<script>
+    const togglePassword = document
+        .querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    togglePassword.addEventListener('click', () => {
+        // Toggle the type attribute using
+        // getAttribure() method
+        const type = password
+            .getAttribute('type') === 'password' ?
+            'text' : 'password';
+        password.setAttribute('type', type);
+        // Toggle the eye and bi-eye icon
+        this.classList.toggle('bi-eye');
+    });
+</script>
+
+<div class="container-fluid accueil">
+    <div class="container sous-accueil" >
+        <a class="one" href="{% url "home" %}">
+            <i class="bi bi-house"></i>
+            Maison
+        </a>
+        <a class="deux" href="{% url "parametres" %}">
+            <i class="fa-solid fa-chevron-right"></i>
+            Compte de paramètres </a>
+        </a>
+      </div> 
+</div> 
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    PARAMÈTRES DU COMPTE
+                </div>
+                <div class="card-body">
+                    <div class="container row">
+                        <!-- Partie verticale -->
+                        <div class="col-md-1">
+                            <!-- Photo de l'utilisateur -->
+                            <img src="{% static 'images/check-circle.png' %}"class="rounded-circle mx-auto d-block mb-3" alt="Photo de profil" style="width: 150px; height: 150px;">
+                        </div>
+
+                        <!-- Formulaire -->
+                        <div class="col-md-9 ml-auto">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Nom et Prénom </label>
+                                        <input type="name" class="form-control" placeholder="tcherno dawda lee">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">E-mail</label>
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputEmail4">E-mail secondaire </label>
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="inputPassword4">Numéro de téléphone</label>
+                                        <input type="text" class="form-control" placeholder="tcherno dawda lee">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputAddress">Address</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputCity">Pays</label>
+                                        <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputState">Région</label>
+                                        <select id="inputState" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>...</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputZip">Code Postal</label>
+                                        <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-orange"><b><a href='#'>SAUVEGARDER LES MODIFICATIONS</a></b></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    CHANGER LE MOT DE PASSE
+                </div>
+                <div class="card-body">
+                    <div class="container row">
+                        
+                        <!-- Formulaire -->
+                        <div class="col-md-9">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Mot de passe actuel</label>
+                                    <div class="input-group">
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Old password">
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Nouveau mot de passe</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="8+ caractères">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Confirmez le mot de passe</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-orange"><b>CHANGER LE MOT DE PASSE</b></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

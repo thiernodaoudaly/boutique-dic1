@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    .card-header {
+        background-color: white; color: black; font-weight: bold;
+    }
+    .profile-pic {
+        width: 80px; height: 80px; border-radius: 50%; border :1px solid black;
+    }
+    .info {
+        display: inline-block; vertical-align: top; margin-left: 20px;
+    }
+    .rectangle1 {
+        background-color: #e8f4fc; padding: 10px; text-align: center; height:120px ; margin-bottom:10px; 
+    }
+    .rectangle2 {
+        background-color: #fff4ec; padding: 10px; text-align: center; height:120px ; margin-bottom:10px;
+    }
+    .rectangle3 {
+        background-color: #e8fcec; padding: 10px; text-align: center;height:120px ; margin-bottom:10px;
+    }
+    .square {
+        width: 65px; height: 65px; margin:10px; background-color: #fff; color: black; margin-bottom: 10px; line-height: 50px;
+    }
+    .conteneur {
+        margin-left : 350px;
+    }
+    .accueil {
+        background-color : #f8f4f4;
+    }
+    .sous-accueil {
+        height: 70px; padding-top: 20px; padding-bottom: 25px;
+    }
+    .fa-chevron-right {
+        font-size:15px; margin-bottom:2px;
+        color: #606c74;
+    }
+    a {
+        text-decoration: none; color: inherit;
+    }
+    a:hover {
+        color: inherit;
+    }
+    .one {
+        color: #606c74;
+    }
+    .deux {
+        color : #08a4fc;
+    }
+</style>
+
+<div class="container-fluid accueil">
+    <div class="container sous-accueil" >
+        <a class="one" href="{% url "home" %}">
+            <i class="bi bi-house"></i>
+            Accueil
+        </a>
+        <a class="deux" href="{% url "register" %}">
+            <i class="fa-solid fa-chevron-right"></i>
+            Profil utilisateur </a>
+        </a>
+    </div> 
+</div>
+
+<div class="conteneur container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Profil utilisateur -->
+            <div class="card">
+                <div class="card-header">INFOCOMPTE</div>
+                <div class="card-body">
+                    <div class="row align-items-start">
+                        <div class="col-auto">
+                            {% comment %} <img src="user.jpg" alt="User" class="profile-pic"> {% endcomment %}
+                            <img class='me-0 pb-1' src="{% static 'images/check-circle.png' %}" alt="logo">
+                        </div>
+                        <div class="col info">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="card-text">New York, USA</p>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush mt-3">
+                        <li class="list-group-item border-0"> <b>Email</b> : johndoe@example.com</li>
+                        <li class="list-group-item border-0"><b>Téléphone</b> : +1234567890</li>
+                        <li class="list-group-item border-0"><b>Adresse</b> : 123 Main St, New York, USA</li>
+                    </ul>
+                    <div class="text-center mt-3">
+                        <button type="button" class="btn btn-outline-primary"><a href="{% url 'parametres' %}">MODIFIER LE COMPTE</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- Rectangles -->
+            <div class="d-flex flex-column">
+                <div class="rectangle1 d-flex align-items-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img class='me-0 pb-1' style="height:70px; width:70px" src="{% static 'images/fusee.png' %}" alt="logo">
+                    </div>
+                    <div class="text-left">
+                        <h5>154</h5>
+                        <p><b>Commandes totales</b></p>
+                    </div>
+                </div>
+                <div class="rectangle2 d-flex align-items-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img class='me-0 pb-1' style="height:70px; width:70px" src="{% static 'images/box.png' %}" alt="logo">
+                    </div>
+                    <div class="text-left">
+                        <h5>05</h5>
+                        <p><b>Commandes en attente</b></p>
+                    </div>
+                </div>
+                <div class="rectangle3 d-flex align-items-center">
+                    <div class="square d-flex justify-content-center align-items-center">
+                        <img class='me-0 pb-1' style="height:70px; width:70px" src="{% static 'images/paper.png' %}" alt="logo">
+                    </div>
+                    <div class="text-left">
+                        <h5>149</h5>
+                        <p><b>Commandes terminées</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
